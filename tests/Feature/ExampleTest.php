@@ -1,7 +1,17 @@
 <?php
 
-it('returns a successful response', function () {
-    $response = $this->get('/');
+namespace Tests\Feature;
 
-    $response->assertStatus(200);
-});
+use Tests\TestCase;
+
+class ExampleTest extends TestCase
+{
+    /** @test */
+    public function hello_page_is_accessible()
+    {
+        $response = $this->get('/hello');
+
+        $response->assertStatus(200);
+        $response->assertSee('Hello');
+    }
+}
